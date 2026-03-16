@@ -33,7 +33,7 @@ return {
       formatting.terraform_fmt,
       require('none-ls.formatting.ruff').with { extra_args = { '--extend-select', 'I' } },
       require 'none-ls.formatting.ruff_format',
-      null_ls.builtins.diagnostics.mypy,
+      -- null_ls.builtins.diagnostics.mypy,
     }
 
     local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
