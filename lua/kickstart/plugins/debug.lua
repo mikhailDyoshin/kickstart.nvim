@@ -137,5 +137,26 @@ return {
 
     -- Python
     require('dap-python').setup(vim.fn.stdpath 'data' .. '/mason/packages/debugpy/venv/bin/python')
+
+    local dap = require 'dap'
+
+    dap.configurations.python = {
+      {
+        type = 'python',
+        request = 'launch',
+        name = 'Launch Flask',
+        module = 'flask',
+        env = {
+          FLASK_APP = 'app.py',
+          FLASK_DEBUG = '1',
+        },
+        args = {
+          'run',
+          '--no-debugger',
+          '--no-reload',
+        },
+        justMyCode = false,
+      },
+    }
   end,
 }
