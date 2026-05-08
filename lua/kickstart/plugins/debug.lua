@@ -25,6 +25,9 @@ return {
 
     -- Add your own debuggers here
     'leoluz/nvim-dap-go',
+
+    -- Python helper plugin
+    'mfussenegger/nvim-dap-python',
   },
   keys = {
     -- Basic debugging keymaps, feel free to change to your liking!
@@ -56,6 +59,7 @@ return {
         -- Update this to ensure that you have the debuggers for the langs you want
         'delve',
         'codelldb',
+        'python',
       },
     }
 
@@ -107,6 +111,8 @@ return {
         detached = vim.fn.has 'win32' == 0,
       },
     }
+
+    -- C/C++
     dap.adapters.codelldb = {
       type = 'server',
       port = '${port}',
@@ -128,5 +134,8 @@ return {
     }
 
     dap.configurations.cpp = dap.configurations.c
+
+    -- Python
+    require('dap-python').setup(vim.fn.stdpath 'data' .. '/mason/packages/debugpy/venv/bin/python')
   end,
 }
