@@ -16,7 +16,7 @@ return {
       ensure_installed = {
         'checkmake',
         'prettier', -- ts/js formatter
-        --        'eslint_d', -- ts/js linter
+        'eslint_d', -- ts/js linter
         'shfmt',
         'stylua', -- lua formatter; Already installed via Mason
         'ruff', -- Python linter and formatter; Already installed via Mason
@@ -31,7 +31,8 @@ return {
       formatting.stylua,
       formatting.shfmt.with { args = { '-i', '4' } },
       formatting.terraform_fmt,
-      require('none-ls.formatting.ruff').with { extra_args = { '--extend-select', 'I' } },
+      -- require('none-ls.formatting.ruff').with { extra_args = { '--extend-select', 'I' } },
+      require 'none-ls.formatting.ruff',
       require 'none-ls.formatting.ruff_format',
       -- null_ls.builtins.diagnostics.mypy,
     }
