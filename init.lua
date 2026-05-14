@@ -107,6 +107,14 @@ vim.o.relativenumber = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
 
+vim.filetype.add {
+  extension = {
+    jinja = 'html',
+    jinja2 = 'html',
+    j2 = 'html',
+  },
+}
+
 -- Don't show the mode, since it's already in the status line
 vim.o.showmode = false
 
@@ -622,8 +630,10 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
+        ts_ls = {},
 
+        html = {},
+        cssls = {},
         stylua = {}, -- Used to format Lua code
 
         -- Special Lua Config, as recommended by neovim help docs
